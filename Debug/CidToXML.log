@@ -1,0 +1,37 @@
+﻿生成启动时间为 2017/6/2 9:59:00。
+     1>项目“D:\QtProjects\CidToXML\CidToXML\CidToXML.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\CidToXML.lastbuildstate”。
+       InitializeBuildStatus:
+         正在创建“Debug\CidToXML.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\VS2010\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.7.3\include /I.\GeneratedFiles\Debug /IC:\Qt\4.7.3\include\QtCore /IC:\Qt\4.7.3\include\QtXml /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_XML_LIB /D CIDTOXML_LIB /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cidtoxml.cpp scd.cpp scd_comm.cpp scd_communication.cpp scd_datatypetemplates.cpp scd_ied.cpp scd_interface.cpp
+         cidtoxml.cpp
+         scd.cpp
+         scd_comm.cpp
+         scd_communication.cpp
+         scd_datatypetemplates.cpp
+         scd_ied.cpp
+         scd_interface.cpp
+         正在生成代码...
+     1>d:\qtprojects\cidtoxml\cidtoxml\cidtoxml.cpp(182): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
+       Link:
+         d:\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\QtProjects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll" /NOLOGO /LIBPATH:C:\Qt\4.7.3\lib qtmaind.lib QtCored4.lib QtXmld4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CidToXML.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\QtProjects\CidToXML\CidToXML\Win32\Debug\CidToXML.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\QtProjects\CidToXML\CidToXML\Win32\Debug\CidToXML.lib" /MACHINE:X86 /DLL Debug\cidtoxml.obj
+         Debug\scd.obj
+         Debug\scd_comm.obj
+         Debug\scd_communication.obj
+         Debug\scd_datatypetemplates.obj
+         Debug\scd_ied.obj
+         Debug\scd_interface.obj
+            正在创建库 D:\QtProjects\CidToXML\CidToXML\Win32\Debug\CidToXML.lib 和对象 D:\QtProjects\CidToXML\CidToXML\Win32\Debug\CidToXML.exp
+         CidToXML.vcxproj -> D:\QtProjects\CidToXML\CidToXML\Win32\Debug\CidToXML.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\QtProjects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll;#2" /manifest Debug\CidToXML.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\CidToXML.unsuccessfulbuild”。
+         正在对“Debug\CidToXML.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\QtProjects\CidToXML\CidToXML\CidToXML.vcxproj”(rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.90
