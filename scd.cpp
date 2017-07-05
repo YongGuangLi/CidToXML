@@ -148,7 +148,7 @@ void SCD::getAllRptCtrlBlk(QList<QString> &listRptCtrlBlk)
 	for(it=mpIED_.begin(); it != mpIED_.end();++it)
 	{ 
 		pIed = it->second; 
-		QString rptName("%1%2/%3$RP$%4");
+		QString rptName("%1%2/%3.RP.%4");
 		pIed->getAllRptCtrlBlk(listRptCtrlBlk,rptName); 
 	}
 }

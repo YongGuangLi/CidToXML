@@ -56,13 +56,13 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 
 	QDomElement ied_Ele;
 	 
-	if (ip.size() > 1)
+	if (ip.size() > 1)    //A网  B网都有
 	{
 		CreateIedNode(document, ied_Ele,QString(ip.at(0)), QString(ip.at(1)), QString("102"), QString("102"));
 	}
-	else if(ip.size() == 1)
+	else if(ip.size() == 1) //只有A网  
 	{
-		CreateIedNode(document, ied_Ele,QString(ip.at(0)), QString(""), QString("102"), QString("102")); 
+		CreateIedNode(document, ied_Ele,QString(ip.at(0)), QString(ip.at(0)), QString("102"), QString("102")); 
 	}
 	else
 	{
