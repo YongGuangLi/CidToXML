@@ -34,7 +34,7 @@ SCD* SCD::instance()
 void SCD::close_singleton()
 {
     if(instance_ != NULL)
-    {
+    { 
         delete instance_;
 
         instance_ = NULL;
@@ -144,11 +144,11 @@ void SCD::getAllRptCtrlBlk(QList<QString> &listRptCtrlBlk)
 {  
 	IED* pIed = NULL;  
 	map<string,IED*>::iterator it;  
-
+ 
 	for(it=mpIED_.begin(); it != mpIED_.end();++it)
 	{ 
 		pIed = it->second; 
-		QString rptName("%1%2/%3.RP.%4");
+		QString rptName("%1%2/%3.%4.%5");
 		pIed->getAllRptCtrlBlk(listRptCtrlBlk,rptName); 
 	}
 }

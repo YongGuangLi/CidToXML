@@ -729,7 +729,14 @@ void LN::getAllRptCtrlBlk(QList<QString> &listRptCtrlBlk,  QString rptName)
 	QMap<QString,stReportControl*>::Iterator it;
 	for (it = mpReportControl_.begin() ; it != mpReportControl_.end(); ++it)
 	{
-		listRptCtrlBlk.push_back(rptName.arg(this->lnClass_).arg(it.value()->name_));
+		if (it.value()->buffered_ == "true")
+		{	
+			listRptCtrlBlk.push_back(rptName.arg(this->lnClass_ + this->inst_).arg("BR").arg(it.value()->name_));
+		}
+		else
+		{
+			listRptCtrlBlk.push_back(rptName.arg(this->lnClass_ + this->inst_).arg("RP").arg(it.value()->name_));
+		}
 	}
 }
 

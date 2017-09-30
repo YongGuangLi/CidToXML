@@ -3,8 +3,6 @@
 #include <map>
 #include <list>
 
-
-
 class ICidToXML
 {
 public:
@@ -21,7 +19,7 @@ extern "C"
 {
 	__declspec(dllexport) ICidToXML* CreateModule(void* pIService);
 	__declspec(dllexport)  void DeleteModule(ICidToXML* pModule);
-};
+}
 
  
 

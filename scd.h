@@ -25,6 +25,7 @@ class SCD
 public: 
     static SCD* instance();
     static void close_singleton();
+
     bool init(string &filename);
     void initDataSetToAddress();
 	void initDoiToAddress();

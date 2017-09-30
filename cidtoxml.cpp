@@ -90,16 +90,14 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 		for(int i = 0; i < it2->second.size(); i++)
 		{
 			QString key = it2->first; 
-			if ((mapFilterFC_.find(key.split("$").at(1).toStdString()) != mapFilterFC_.end())  
-				&& mapFilterType_.find(key.split("$").at(5).toStdString()) != mapFilterType_.end())
+			if(mapFilterFC_.count(key.split("$").at(1).toStdString()) != 0 && mapFilterType_.count(key.split("$").at(5).toStdString()) != 0)
 			{  
 				CreateOrderNode(document, tagList_Ele,
-					QString::number(iCnt),												 //index
-					QString(key.split("$").at(4)),										 //doname
-					QString(it2->second[i].c_str()),								     //point
-					QString(key.split("$").at(3)),					 //desc   
-					QString(mapFilterType_[key.split("$").at(5).toStdString()].c_str()));   
-					
+					QString::number(iCnt),										 		   //index
+					QString(key.split("$").at(4)),										   //doname
+					QString(it2->second[i].c_str()),								       //point
+					QString(key.split("$").at(3)),					                       //desc   
+					QString(mapFilterType_[key.split("$").at(5).toStdString()].c_str()));    
 				iCnt++;
 			}  
 		} 
@@ -110,7 +108,8 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 	QTextStream out(&src);
 	document.save( out, 4);   
 	rsDocument = src.toLocal8Bit().data(); 
-	  
+	 
+	SCD::close_singleton();
 	return 0;
 }
 
