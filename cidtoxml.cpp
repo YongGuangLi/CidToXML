@@ -13,8 +13,9 @@
 #include <string>
 #include <windows.h>
 #include <fstream>
+#include <iostream>
 
-
+using namespace std;
 
 CidToXML::CidToXML()
 {
@@ -42,7 +43,10 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 	} 
 
 	//do_da 
-	SCD::instance()->initDoiToAddress(); 
+	//SCD::instance()->initDoiToAddress();  
+	//data_da
+ 
+	SCD::instance()->initDataSetToAddress();
 	 
 	SCD::instance()->getErrorList(lstErrors);
 
@@ -83,21 +87,25 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 	tagList_Ele.setAttribute( "desc", QString::fromLocal8Bit("采集点列表"));   
 	ied_Ele.appendChild( tagList_Ele );  
 
-	map<QString,vector<string> >::iterator it2 = SCD::instance()->getDoiToAddress().begin();
+ 
+
+	map<string,vector<string> >::iterator it2 = SCD::instance()->getDataSetToAddress().begin();
 	int iCnt = 0;
-	while(it2 != SCD::instance()->getDoiToAddress().end())
+	while(it2 != SCD::instance()->getDataSetToAddress().end())
 	{
 		for(int i = 0; i < it2->second.size(); i++)
-		{
-			QString key = it2->first; 
-			if(mapFilterFC_.count(key.split("$").at(1).toStdString()) != 0 && mapFilterType_.count(key.split("$").at(5).toStdString()) != 0)
+		{ 
+			QString value = QString::fromLocal8Bit(it2->second.at(i).c_str());
+			if(mapFilterFC_.count( value.split(":").at(1).toStdString()) != 0 
+				&& mapFilterType_.count(value.split(":").at(2).toStdString()) != 0)
 			{  
 				CreateOrderNode(document, tagList_Ele,
 					QString::number(iCnt),										 		   //index
-					QString(key.split("$").at(4)),										   //doname
-					QString(it2->second[i].c_str()),								       //point
-					QString(key.split("$").at(3)),					                       //desc   
-					QString(mapFilterType_[key.split("$").at(5).toStdString()].c_str()));    
+					QString(value.split(":").at(4)),									   //doname
+					QString(value.split(":").at(0)),								       //point
+					QString(value.split(":").at(3)),					                   //desc   
+					QString(mapFilterType_[value.split(":").at(2).toStdString()].c_str()),
+					QString(value.split(":").at(5)));    
 				iCnt++;
 			}  
 		} 
@@ -110,6 +118,7 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 	rsDocument = src.toLocal8Bit().data(); 
 	 
 	SCD::close_singleton();
+ 
 	return 0;
 }
 
@@ -131,14 +140,15 @@ void CidToXML::CreateRptCtrlBlkNode(QDomDocument& document, QDomElement& rptGrou
 	rptGroup_Ele.appendChild( rptCtrlBlk_Ele ); 
 }
 
-void CidToXML::CreateOrderNode(QDomDocument& document, QDomElement& tagList_Ele, QString& index, QString& doname,QString& point, QString& desc, QString& type)
+void CidToXML::CreateOrderNode(QDomDocument& document, QDomElement& tagList_Ele, QString& index, QString& doname,QString& point, QString& desc, QString& type, QString &lnInst)
 {
 	QDomElement order_Ele = document.createElement( "Order" );   
 	order_Ele.setAttribute( "index", index);   
 	order_Ele.setAttribute( "doname", doname);
 	order_Ele.setAttribute( "point", point);    
 	order_Ele.setAttribute( "desc", desc);    
-	order_Ele.setAttribute( "type", type);    
+	order_Ele.setAttribute( "type", type);  
+	order_Ele.setAttribute( "lnInst", lnInst);    
 	tagList_Ele.appendChild(order_Ele );  
 }
 

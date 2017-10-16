@@ -37,7 +37,7 @@ private:
 	void CreateRptCtrlBlkNode(QDomDocument& document, QDomElement& rptGroup_Ele, QString& name);
 	
 	//生成Order节点
-	void CreateOrderNode(QDomDocument& document, QDomElement& tagList_Ele, QString& index, QString& doname, QString& point, QString& desc, QString& type);
+	void CreateOrderNode(QDomDocument& document, QDomElement& tagList_Ele, QString& index, QString& doname, QString& point, QString& desc, QString& type, QString &lnInst);
 	
 	//读取配置文件
 	bool InitCfgFile(std::string csInitFile);

@@ -399,7 +399,7 @@ map<string,vector<string> >& DataSet::initDataSetToAddress()
 
         for(int x = 0; x<ns.count(); x++)
         {
-            vt.push_back(ns.at(x).toStdString());
+            vt.push_back(ns.at(x).toLocal8Bit().data());
         }
        /* if(!vtFCDA_[i]->daName_.isEmpty())
         {
@@ -965,7 +965,7 @@ map<QString,vector<string> >& stDOI::initDoiToAddress()
 			//QString keyPath = keyName + "$" + doFc + "$" + this->name_;
 			//liyg 2017.05.25
 			QString keyPath = keyName + "$" + doFc + "$" + this->name_ + "$" + this->desc_ + "$" + DoName + "$" + DAType;
-		
+			qDebug()<<keyPath;
 			if(1 == value.contains(MYFC))
 			{
 				value.replace(value.indexOf(MYFC), 4, doFc);
@@ -1168,6 +1168,8 @@ QStringList FCDA::getGlobalNames()
 
     stLN* pLN = p->getLN(this->prefix_,this->lnClass_,this->lnInst_);
 
+	stDOI *doi = pLN->mpDOI_[this->doName_];     //获取对应逻辑节点下的数据对象，用于获取描述
+
     if(pLN == NULL )
 	{
         qDebug()<<"FCDA::getGlobalNames() stLN \n";
@@ -1244,15 +1246,14 @@ QStringList FCDA::getGlobalNames()
 			else if(DOType::SDOLAB == cit->labType)
 			{
 				stSDO *pSDo = pDoType->findSDO(cit->key);
+				doName += "/" + pSDo->name_;
 				parseSdo(pSDo, name, this->fc_, ret);
 			}
 		}
 
 		for(int x = 0; x<ret.count(); x++)
-		{
-			strTmp = QString(":%1=%2").arg(elmentName).arg(ret.at(x).mid(0, ret.at(x).indexOf(":")));
-			//ret2.push_back(ret.at(x).mid(0, ret.at(x).indexOf(":")));
-			ret2.push_back(strTmp);
+		{  
+			ret2.push_back(ret.at(x)+ ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
 		} 
 
 	}
@@ -1317,15 +1318,13 @@ QStringList FCDA::getGlobalNames()
 				parseBDa(pBDa,  this->fc_, name,ret);
 			}  
 			for(int x = 0; x<ret.count(); x++)
-			{
-				strTmp = QString(":%1=%2").arg(elmentName).arg(ret.at(x).mid(0, ret.at(x).indexOf(":")));
-				//ret2.push_back(ret.at(x).mid(0, ret.at(x).indexOf(":")));
-				ret2.push_back(strTmp);
+			{  
+				ret2.push_back(ret.at(x) + ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
 			} 
 		}
 		else
-		{
-			ret2.push_back(QString(":%1=%2").arg(name).arg(name + "$" + this->daName_));
+		{  
+			ret2.push_back(name + "$" + this->daName_ + ":" +pDa->bType_ + ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
 		}
 	}
 

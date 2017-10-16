@@ -1,0 +1,31 @@
+﻿生成启动时间为 10/16/2017 2:13:11 PM。
+     1>项目“D:\Vs2010Projects\CidToXML\CidToXML\CidToXML.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\CidToXML.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\VS2010\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.8.6\include /I.\GeneratedFiles\Debug /IC:\Qt\4.8.6\include\QtCore /IC:\Qt\4.8.6\include\QtXml /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_XML_LIB /D CIDTOXML_LIB /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cidtoxml.cpp
+         cidtoxml.cpp
+     1>c:\qt\4.8.6\include\qtcore\../../src/corelib/global/qconfig.h(41): warning C4005: “QT_LARGEFILE_SUPPORT”: 宏重定义
+                 命令行参数: 参见前面的“QT_LARGEFILE_SUPPORT”定义
+     1>d:\vs2010projects\cidtoxml\cidtoxml\cidtoxml.cpp(191): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
+       Link:
+         d:\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll" /NOLOGO /LIBPATH:C:\Qt\4.8.6\lib qtmaind.lib QtCored4.lib QtXmld4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CidToXML.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.lib" /MACHINE:X86 /DLL Debug\cidtoxml.obj
+         Debug\scd.obj
+         Debug\scd_comm.obj
+         Debug\scd_communication.obj
+         Debug\scd_datatypetemplates.obj
+         Debug\scd_ied.obj
+         Debug\scd_interface.obj
+         LINK : 没有找到 D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll 或上一个增量链接没有生成它；正在执行完全链接
+            正在创建库 D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.lib 和对象 D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.exp
+         CidToXML.vcxproj -> D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll;#2" /manifest Debug\CidToXML.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\CidToXML.unsuccessfulbuild”。
+         正在对“Debug\CidToXML.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Vs2010Projects\CidToXML\CidToXML\CidToXML.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.14
