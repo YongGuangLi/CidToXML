@@ -55,6 +55,10 @@ private:
 	map<string,string> mapFilterFC_;
 	
 	map<string,string> mapFilterType_;
+
+	map<QString,QString> mapIED_Alias_;
+
+	bool isEnable_;
 };
  
 #endif // CIDTOXML_H

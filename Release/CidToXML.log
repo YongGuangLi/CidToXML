@@ -1,6 +1,8 @@
-﻿生成启动时间为 10/16/2017 2:14:26 PM。
+﻿生成启动时间为 10/18/2017 3:23:03 PM。
      1>项目“D:\Vs2010Projects\CidToXML\CidToXML\CidToXML.vcxproj”在节点 2 上(rebuild 个目标)。
-     1>InitializeBuildStatus:
+     1>_PrepareForClean:
+         正在删除文件“Release\CidToXML.lastbuildstate”。
+       InitializeBuildStatus:
          正在创建“Release\CidToXML.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
          d:\VS2010\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.8.6\include /I.\GeneratedFiles\Release /IC:\Qt\4.8.6\include\QtCore /IC:\Qt\4.8.6\include\QtXml /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_XML_LIB /D CIDTOXML_LIB /D _WINDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cidtoxml.cpp scd.cpp scd_comm.cpp scd_communication.cpp scd_datatypetemplates.cpp scd_ied.cpp scd_interface.cpp
@@ -26,7 +28,7 @@
      1>c:\qt\4.8.6\include\qtcore\../../src/corelib/global/qconfig.h(41): warning C4005: “QT_LARGEFILE_SUPPORT”: 宏重定义
                  命令行参数: 参见前面的“QT_LARGEFILE_SUPPORT”定义
          正在生成代码...
-     1>d:\vs2010projects\cidtoxml\cidtoxml\cidtoxml.cpp(191): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
+     1>d:\vs2010projects\cidtoxml\cidtoxml\cidtoxml.cpp(218): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
        Link:
          d:\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Release\\CidToXML.dll" /NOLOGO /LIBPATH:C:\Qt\4.8.6\lib qtmain.lib QtCore4.lib QtXml4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\CidToXML.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Release\CidToXML.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Release\CidToXML.lib" /MACHINE:X86 /DLL Release\cidtoxml.obj
          Release\scd.obj
@@ -46,4 +48,4 @@
 
 生成成功。
 
-已用时间 00:00:11.87
+已用时间 00:00:26.32

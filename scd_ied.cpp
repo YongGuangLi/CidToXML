@@ -1168,15 +1168,13 @@ QStringList FCDA::getGlobalNames()
 
     stLN* pLN = p->getLN(this->prefix_,this->lnClass_,this->lnInst_);
 
-	stDOI *doi = pLN->mpDOI_[this->doName_];     //获取对应逻辑节点下的数据对象，用于获取描述
-
+	
     if(pLN == NULL )
 	{
         qDebug()<<"FCDA::getGlobalNames() stLN \n";
 
         goto ERROR;
-    }
-
+    } 
 
 	DataTypeTemplates* ptmp = SCD::instance()->getDataTypeTemplates();
 
@@ -1190,6 +1188,15 @@ QStringList FCDA::getGlobalNames()
 	}
 
 	doList = this->doName_.split(".");
+	stDOI *doi = NULL;
+	if(pLN->mpDOI_.count(doList.at(0)))
+	{
+		doi = pLN->mpDOI_[doList.at(0)];     //获取对应逻辑节点下的数据对象，用于获取描述
+	}
+	else
+	{
+		qDebug()<<"not find DO:"<<doList.at(0);
+	}
 	if(doList.count() < 1)
 	{
 		qDebug()<<"FCDA::getGlobalNames() DO \n";

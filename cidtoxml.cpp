@@ -19,7 +19,7 @@ using namespace std;
 
 CidToXML::CidToXML()
 {
-
+	isEnable_ = false;
 }
 
 CidToXML::~CidToXML()
@@ -143,8 +143,19 @@ void CidToXML::CreateRptCtrlBlkNode(QDomDocument& document, QDomElement& rptGrou
 void CidToXML::CreateOrderNode(QDomDocument& document, QDomElement& tagList_Ele, QString& index, QString& doname,QString& point, QString& desc, QString& type, QString &lnInst)
 {
 	QDomElement order_Ele = document.createElement( "Order" );   
-	order_Ele.setAttribute( "index", index);   
-	order_Ele.setAttribute( "doname", doname);
+	order_Ele.setAttribute( "index", index);  
+	if (isEnable_ && mapIED_Alias_.count(doname) == 1)
+	{
+		order_Ele.setAttribute( "doname", mapIED_Alias_[doname]);
+	}
+	else if (isEnable_ && mapIED_Alias_.count(doname) == 0)
+	{
+		order_Ele.setAttribute( "doname", doname + "#");
+	}
+	else
+	{
+		order_Ele.setAttribute( "doname", doname);
+	}
 	order_Ele.setAttribute( "point", point);    
 	order_Ele.setAttribute( "desc", desc);    
 	order_Ele.setAttribute( "type", type);  
@@ -179,6 +190,22 @@ bool CidToXML::InitCfgFile(std::string csInitFile)
 				mapFilterType_[TYPEkeys.at(i).toStdString()] = settings->value(TYPEkeys.at(i)).toString().toStdString(); 
 			} 
 			settings->endGroup();
+
+			settings->beginGroup("ENABLE"); 
+			if(settings->value("enable_i2").toInt())
+			{
+				isEnable_ = true;
+			}
+			settings->endGroup();
+
+			settings->beginGroup("I2");
+			QStringList AliasKeys = settings->allKeys();
+			for (int i = 0 ; i < AliasKeys.size(); ++i)
+			{ 
+				mapIED_Alias_[AliasKeys.at(i)] = settings->value(AliasKeys.at(i)).toString(); 
+			} 
+			settings->endGroup();
+			
 
 			return true;
 		}
