@@ -1188,6 +1188,7 @@ QStringList FCDA::getGlobalNames()
 	}
 
 	doList = this->doName_.split(".");
+
 	stDOI *doi = NULL;
 	if(pLN->mpDOI_.count(doList.at(0)))
 	{
@@ -1195,8 +1196,10 @@ QStringList FCDA::getGlobalNames()
 	}
 	else
 	{
-		qDebug()<<"not find DO:"<<doList.at(0);
+		listErrorInfo.push_back(QString(doList.at(0) + "not find").toStdString());
+		return ret2;
 	}
+
 	if(doList.count() < 1)
 	{
 		qDebug()<<"FCDA::getGlobalNames() DO \n";

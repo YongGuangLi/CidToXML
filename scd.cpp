@@ -116,11 +116,7 @@ void SCD::initDataSetToAddress()
         tmp = pIed->initDataSetToAddress();
 
         this->mpDataSetToDa_.insert(tmp.begin(),tmp.end());
-
-        
     }
-
-
 }
 
 //我改1 DOI，由于SCD的问题，DOI解析定义的类型

@@ -1,9 +1,9 @@
-﻿生成启动时间为 10/18/2017 3:23:03 PM。
+﻿生成启动时间为 10/31/2017 1:59:41 PM。
      1>项目“D:\Vs2010Projects\CidToXML\CidToXML\CidToXML.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Release\CidToXML.lastbuildstate”。
        InitializeBuildStatus:
-         正在创建“Release\CidToXML.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Release\CidToXML.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
          d:\VS2010\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\4.8.6\include /I.\GeneratedFiles\Release /IC:\Qt\4.8.6\include\QtCore /IC:\Qt\4.8.6\include\QtXml /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_XML_LIB /D CIDTOXML_LIB /D _WINDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cidtoxml.cpp scd.cpp scd_comm.cpp scd_communication.cpp scd_datatypetemplates.cpp scd_ied.cpp scd_interface.cpp
          cidtoxml.cpp
@@ -48,4 +48,4 @@
 
 生成成功。
 
-已用时间 00:00:26.32
+已用时间 00:00:11.28
