@@ -1132,8 +1132,7 @@ QStringList FCDA::getGlobalNames()
 	QString FCD = name;
 	QString elmentName = name;
 
-	QString doName;
-	QString daName;
+	QString doName; 
 
 	//shuchang 12.16
 	if(this->doName_.length()>0)
@@ -1143,14 +1142,7 @@ QStringList FCDA::getGlobalNames()
 
 		elmentName += "$"+doName; 
 	}
-
-	if(this->daName_.length()>0)
-	{
-		daName = this->daName_;
-		daName = daName.replace('.','$');
-
-		elmentName += "$"+daName; 
-	}
+	 
 
 
 	/////////////////////////
@@ -1193,12 +1185,7 @@ QStringList FCDA::getGlobalNames()
 	if(pLN->mpDOI_.count(doList.at(0)))
 	{
 		doi = pLN->mpDOI_[doList.at(0)];     //获取对应逻辑节点下的数据对象，用于获取描述
-	}
-	else
-	{
-		listErrorInfo.push_back(QString(doList.at(0) + "not find").toStdString());
-		return ret2;
-	}
+	} 
 
 	if(doList.count() < 1)
 	{
@@ -1213,6 +1200,11 @@ QStringList FCDA::getGlobalNames()
 		qDebug()<<"FCDA::getGlobalNames() DO \n";
         goto ERROR;
 	}
+	else if(doi != NULL)
+	{
+		pDo->desc_ = doi->desc_;
+	}
+
 	DOType* pDoType = ptmp->findDOType(pDo->type_);
 
 	if(pDoType == NULL)
@@ -1263,7 +1255,7 @@ QStringList FCDA::getGlobalNames()
 
 		for(int x = 0; x<ret.count(); x++)
 		{  
-			ret2.push_back(ret.at(x)+ ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
+			ret2.push_back(ret.at(x)+ ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
 		} 
 
 	}
@@ -1329,12 +1321,12 @@ QStringList FCDA::getGlobalNames()
 			}  
 			for(int x = 0; x<ret.count(); x++)
 			{  
-				ret2.push_back(ret.at(x) + ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
+				ret2.push_back(ret.at(x) + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
 			} 
 		}
 		else
 		{  
-			ret2.push_back(name + "$" + this->daName_ + ":" +pDa->bType_ + ":" + QString(doi->desc_) + ":" + doName + ":" + this->lnInst_);
+			ret2.push_back(name + "$" + this->daName_ + ":" +pDa->bType_ + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
 		}
 	}
 
