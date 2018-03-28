@@ -1326,7 +1326,7 @@ QStringList FCDA::getGlobalNames()
 		}
 		else
 		{  
-			ret2.push_back(name + "$" + this->daName_ + ":" +pDa->bType_ + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
+			ret2.push_back(name + "$" + this->daName_ + ":" + this->fc_ +  ":" +pDa->bType_ + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
 		}
 	}
 

@@ -44,8 +44,8 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 
 	//do_da 
 	//SCD::instance()->initDoiToAddress();  
-	//data_da
- 
+
+	//data_da 
 	SCD::instance()->initDataSetToAddress();
 	 
 	SCD::instance()->getErrorList(lstErrors);
@@ -96,6 +96,7 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 		for(int i = 0; i < it2->second.size(); i++)
 		{ 
 			QString value = QString::fromLocal8Bit(it2->second.at(i).c_str());
+			qDebug()<<value;
 			if(mapFilterFC_.count( value.split(":").at(1).toStdString()) != 0 
 				&& mapFilterType_.count(value.split(":").at(2).toStdString()) != 0)
 			{  

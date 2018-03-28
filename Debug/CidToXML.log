@@ -1,7 +1,8 @@
-﻿生成启动时间为 11/3/2017 2:30:30 PM。
+﻿生成启动时间为 3/28/2018 10:49:37 AM。
      1>项目“D:\Vs2010Projects\CidToXML\CidToXML\CidToXML.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Debug\CidToXML.lastbuildstate”。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppClean.targets(74,5): warning : 对路径“D:\VS2010PROJECTS\CIDTOXML\CIDTOXML\WIN32\DEBUG\CIDTOXML.PDB”的访问被拒绝。
        InitializeBuildStatus:
          正在创建“Debug\CidToXML.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
@@ -28,7 +29,7 @@
      1>c:\qt\4.8.6\include\qtcore\../../src/corelib/global/qconfig.h(41): warning C4005: “QT_LARGEFILE_SUPPORT”: 宏重定义
                  命令行参数: 参见前面的“QT_LARGEFILE_SUPPORT”定义
          正在生成代码...
-     1>d:\vs2010projects\cidtoxml\cidtoxml\cidtoxml.cpp(218): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
+     1>d:\vs2010projects\cidtoxml\cidtoxml\cidtoxml.cpp(219): warning C4715: “CidToXML::InitCfgFile”: 不是所有的控件路径都返回值
        Link:
          d:\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\\CidToXML.dll" /NOLOGO /LIBPATH:C:\Qt\4.8.6\lib qtmaind.lib QtCored4.lib QtXmld4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CidToXML.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Vs2010Projects\CidToXML\CidToXML\Win32\Debug\CidToXML.lib" /MACHINE:X86 /DLL Debug\cidtoxml.obj
          Debug\scd.obj
@@ -48,4 +49,4 @@
 
 生成成功。
 
-已用时间 00:00:10.13
+已用时间 00:00:10.00
