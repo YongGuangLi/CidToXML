@@ -42,3 +42,19 @@ Network Trash Folder
 Temporary Items
 .apdisk
 CidToXML.opensdf
+
+
+*.user.*
+*.user
+*.sdf
+*.vcxproj
+*.filters
+*.suo
+*.sdf
+
+Debug/
+ipch/
+temp/
+Win32/
+x64/
+Release/

@@ -35,18 +35,12 @@ void parseBDa( BDA * pBDa, QString& daFc, QString& pathName, QStringList & listR
 }
 //ÎÒ¸Ä
 void parseDa( DA * pDa, QString& pathName,  QString& fc,QStringList & listRet)
-{
-	if(fc == pDa->fc_ || fc.isEmpty())
-	{
-	}
-	else
-	{
-		return;
-	}
+{ 
 	QString tmpName = pathName;
 
 	tmpName.append("$").append(pDa->name_);
 	DataTypeTemplates* ptmp = SCD::instance()->getDataTypeTemplates();	
+	 
 	if(pDa->type_.isEmpty() || pDa->bType_.toUpper() == "ENUM")
 	{
 		listRet.push_back((tmpName + ":" + pDa->fc_ + ":" + pDa->bType_)); 
@@ -1127,24 +1121,10 @@ QStringList FCDA::getGlobalNames()
                       .arg(this->prefix_)
                       .arg(this->lnClass_)
                       .arg(this->lnInst_)
-                      .arg(this->fc_);
+                      .arg(MYFC);
 
-	QString FCD = name;
-	QString elmentName = name;
-
-	QString doName; 
-
-	//shuchang 12.16
-	if(this->doName_.length()>0)
-	{
-		doName = this->doName_;
-		doName = doName.replace('.','$');
-
-		elmentName += "$"+doName; 
-	}
+	QString FCD = name; 
 	 
-
-
 	/////////////////////////
 	QVector<stDA*> tmpVctDa;
 
@@ -1204,7 +1184,7 @@ QStringList FCDA::getGlobalNames()
 	{
 		pDo->desc_ = doi->desc_;
 	}
-
+	 
 	DOType* pDoType = ptmp->findDOType(pDo->type_);
 
 	if(pDoType == NULL)
@@ -1233,7 +1213,7 @@ QStringList FCDA::getGlobalNames()
 			  goto ERROR;
 	   }
    }
-
+	 
    if(this->daName_.isEmpty())
    {
 		QVector<DOType::DoIndex>::ConstIterator cit = pDoType->vtIndex.begin();
@@ -1241,21 +1221,21 @@ QStringList FCDA::getGlobalNames()
 		for(;cit != pDoType->vtIndex.end(); ++cit)
 		{
 			if(DOType::DALAB == cit->labType)
-			{
+			{  
 				DA * pDa = pDoType->findDA(cit->key);
 				parseDa(pDa, name, this->fc_, ret);
 			}
 			else if(DOType::SDOLAB == cit->labType)
-			{
+			{  
 				stSDO *pSDo = pDoType->findSDO(cit->key);
-				doName += "/" + pSDo->name_;
+				this->doName_ += "/" + pSDo->name_;
 				parseSdo(pSDo, name, this->fc_, ret);
 			}
 		}
 
 		for(int x = 0; x<ret.count(); x++)
 		{  
-			ret2.push_back(ret.at(x)+ ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
+			ret2.push_back(ret.at(x)+ ":" + QString(pDo->desc_) + ":" + this->doName_ + ":" + this->lnInst_);
 		} 
 
 	}
@@ -1321,12 +1301,13 @@ QStringList FCDA::getGlobalNames()
 			}  
 			for(int x = 0; x<ret.count(); x++)
 			{  
-				ret2.push_back(ret.at(x) + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
+				ret2.push_back(ret.at(x) + ":" + QString(pDo->desc_) + ":" + this->doName_ + ":" + this->lnInst_);
 			} 
 		}
 		else
 		{  
-			ret2.push_back(name + "$" + this->daName_ + ":" + this->fc_ +  ":" +pDa->bType_ + ":" + QString(pDo->desc_) + ":" + doName + ":" + this->lnInst_);
+
+			ret2.push_back(name + "$" + this->daName_ + ":" + this->fc_ +  ":" +pDa->bType_ + ":" + QString(pDo->desc_) + ":" + this->doName_ + ":" + this->lnInst_);
 		}
 	}
 

@@ -97,13 +97,14 @@ int CidToXML::ConvertCid2XML(std::string csInitFile,std::string csCidFile,std::s
 		{ 
 			QString value = QString::fromLocal8Bit(it2->second.at(i).c_str());
 			qDebug()<<value;
-			if(mapFilterFC_.count( value.split(":").at(1).toStdString()) != 0 
-				&& mapFilterType_.count(value.split(":").at(2).toStdString()) != 0)
+			QString fc = value.split(":").at(1);
+			QString Type = value.split(":").at(2);
+			if(mapFilterFC_.count(fc.toStdString()) != 0 && mapFilterType_.count(Type.toStdString()) != 0)
 			{  
 				CreateOrderNode(document, tagList_Ele,
 					QString::number(iCnt),										 		   //index
 					QString(value.split(":").at(4)),									   //doname
-					QString(value.split(":").at(0)),								       //point
+					QString(value.split(":").at(0)).replace("myfc",fc),								       //point
 					QString(value.split(":").at(3)),					                   //desc   
 					QString(mapFilterType_[value.split(":").at(2).toStdString()].c_str()),
 					QString(value.split(":").at(5)));    

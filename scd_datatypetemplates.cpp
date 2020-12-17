@@ -106,9 +106,9 @@ void DOType::initDA(QDomElement &e)
     da->dupd_ = e.attribute("dupd","");
     da->fc_ = e.attribute("fc","");
 
-    this->mpDA_.insert(da->name_,da);
+    this->mpDA_.insert(da->name_ +  ":" + da->fc_,da);
 	DoIndex doIndex;
-	doIndex.key = da->name_;
+	doIndex.key = da->name_ + ":" + da->fc_;
 	doIndex.labType = DALAB;
 	this->vtIndex.push_back(doIndex);
     //this->vtDA_.append(da);
