@@ -316,53 +316,44 @@ void LDevice::initLN(QDomElement &e)
          tmp = n.toElement();
          name = tmp.tagName();
 
-         if(name == "DataSet")
-         {
-             p->initDataSet(tmp);
-         }
-         else
-             if(name == "ReportControl")
-             {
-                  p->initReportControl(tmp);
-             }
-             else
-                 if(name == "LogControl")
-                 {
-                      p->initLogControl(tmp);
-                 }
-                 else
-                 if(name == "DOI")
-                 {
-                      p->initDOI(tmp);
-                 }
-                 else
-                 if(name == "Inputs")
-                     {
-                          p->initInputs(tmp);
-                     }
-                     else
-                     if(name == "Log")
-                         {
-                              p->initLog(tmp);
-                         }
-                     else
-                         if(name == "GSEControl")
-                         {
-                         }
-                     else
-                         if(name == "SampledValueControl")
-                         {
-                     }
-                     else
-                         if(name == "SettingControl")
-                         {
+		if(name == "DataSet")
+		{
+			p->initDataSet(tmp);
+		}
+		else if(name == "ReportControl")
+		{
+			p->initReportControl(tmp);
+		}
+		else if(name == "LogControl")
+		{
+			p->initLogControl(tmp);
+		}
+		else if(name == "DOI")
+		{
+			p->initDOI(tmp);
+		}
+		else if(name == "Inputs")
+		{
+			p->initInputs(tmp);
+		}
+		else if(name == "Log")
+		{
+			p->initLog(tmp);
+		}
+		else if(name == "GSEControl")
+		{
+		}
+		else if(name == "SampledValueControl")
+		{
+		}
+		else if(name == "SettingControl")
+		{
 
-                         }
-                         else
-                             if(name == "SCLControl")
-                             {
+		}
+		else if(name == "SCLControl")
+		{
 
-                             }
+		}
 
 
          n = n.nextSibling();
@@ -1247,7 +1238,7 @@ QStringList FCDA::getGlobalNames()
 			//qDebug()<<"FCDA::getGlobalNames() DA \n";
 			goto ERROR;
 		}
-		DA * pDa = pDoType->findDA(daList.at(0));
+		DA * pDa = pDoType->findDA(daList.at(0) + ":" + this->fc_);
 		if(pDa == NULL )
 		{
 			//qDebug()<<"FCDA::getGlobalNames() DA \n";
